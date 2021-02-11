@@ -29,7 +29,7 @@ float bisection(float a[2])
 		pa = Pn(a[0]);
 		pb = Pn(a[1]);
 		pc = Pn(c);
-		cout << "итерация:   " << i+1 << endl;
+		cout << "iteration:   " << i+1 << endl;
 		if (pa * pc < 0)
 		{
 			a[1] = c;
@@ -48,7 +48,7 @@ float bisection(float a[2])
 		cout << "        |a-b| : " << abs(a[0] - a[1]) << endl << endl;
 		i++;
 	}
-	cout << "Количество итераций:     i = " << i << endl;
+	cout << "Number of iterations:     i = " << i << endl;
 	if (x != c)
 		x = (a[0] + a[1]) / 2;
 	return x;
@@ -67,7 +67,7 @@ float newton(float a[2])
 	float c2 = 0;
 	while (abs(c1-c2) >= eps && x!=c2)
 	{
-		cout << "итерация:   " << i + 1 << endl;
+		cout << "iteration:   " << i + 1 << endl;
 		c2 = c1 - Pn(c1) / P1(c1);
 		pc = Pn(c2);
 		if (abs(pc) < eps || abs(c1 - c2) < eps)
@@ -87,14 +87,14 @@ float newton(float a[2])
 		//cout << endl;
 		i++;
 	}
-	cout << "Количество итераций:     i = " << i << endl;
+	cout << "Number of iterations:     i = " << i << endl;
 	if (x != c2)
 		x = (c1 + c2) / 2;
 	return x;
 }
 
 
-float secant(float a[2]) //хорд
+float secant(float a[2]) //ГµГ®Г°Г¤
 {
 	int i = 0;
 	float x = 0;
@@ -109,7 +109,7 @@ float secant(float a[2]) //хорд
 		pa = Pn(a[0]);
 		pb = Pn(a[1]);
 		pc = Pn(c);
-		cout << "итерация:   " << i + 1 << endl;
+		cout << "iteration:   " << i + 1 << endl;
 		if (pa * pc < 0)
 		{
 			a[1] = c;
@@ -128,7 +128,7 @@ float secant(float a[2]) //хорд
 		cout << "        |a-b| : " << abs(a[0] - a[1]) << endl << endl;
 		i++;
 	}
-	cout << "Количество итераций:     i = " << i << endl;
+	cout << "Number of iterations:     i = " << i << endl;
 	if (x != c)
 		x = (a[0] + a[1]) / 2;
 	return x;
