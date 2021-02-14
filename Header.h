@@ -25,20 +25,17 @@ float bisection(float a[2])
 	while (abs(a[0]-a[1])>=eps && x!=c)
 	{
 		c = (a[0] + a[1]) / 2;
-		//cout << c << endl;
 		pa = Pn(a[0]);
 		pb = Pn(a[1]);
 		pc = Pn(c);
-		cout << "èòåðàöèÿ:   " << i+1 << endl;
+		cout << "Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ñ:   " << i+1 << endl;
 		if (pa * pc < 0)
 		{
 			a[1] = c;
-			//cout << "(a,b) = (" << a[0] << ", " << a[1] << ")" << endl;
 		}
 		if (pb * pc < 0)
 		{
 			a[0] = c;
-			//cout << "(a,b) = (" << a[0] << ", " << a[1] << ")" << endl;
 		}
 		if (pc == 0)
 		{
@@ -48,7 +45,7 @@ float bisection(float a[2])
 		cout << "        |a-b| : " << abs(a[0] - a[1]) << endl << endl;
 		i++;
 	}
-	cout << "Êîëè÷åñòâî èòåðàöèé:     i = " << i << endl;
+	cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ð¹:     i = " << i << endl;
 	if (x != c)
 		x = (a[0] + a[1]) / 2;
 	return x;
@@ -58,16 +55,12 @@ float newton(float a[2])
 {
 	int i = 0;
 	float x = 1;
-	//float pa = 0;
-	//float pb = 0;
 	float pc = 0;
-	//pa = Pn(a[0]);
-	//pb = Pn(a[1]);
 	float c1 = a[0];
 	float c2 = 0;
 	while (abs(c1-c2) >= eps && x!=c2)
 	{
-		cout << "èòåðàöèÿ:   " << i + 1 << endl;
+		cout << "Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ñ:   " << i + 1 << endl;
 		c2 = c1 - Pn(c1) / P1(c1);
 		pc = Pn(c2);
 		if (abs(pc) < eps || abs(c1 - c2) < eps)
@@ -84,16 +77,15 @@ float newton(float a[2])
 		cout << "   x* : " << (c1 + c2) / 2 << endl;
 		cout << "     |f(c)| : " << abs(pc) << endl;
 		cout << "        |x_{k}-x_{k-1}| : " << abs(c1 - c2) << endl << endl;
-		//cout << endl;
 		i++;
 	}
-	cout << "Êîëè÷åñòâî èòåðàöèé:     i = " << i << endl;
+	cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ð¹:     i = " << i << endl;
 	if (x != c2)
 		x = (c1 + c2) / 2;
 	return x;
 }
 
-float secant(float a[2]) //õîðä
+float secant(float a[2]) //ÃµÃ®Ã°Ã¤
 {
 	int i = 0;
 	float x = 1;
@@ -106,18 +98,15 @@ float secant(float a[2]) //õîðä
 		c = (a[0] * pb - a[1] * pa) / (pb - pa);
 		pa = Pn(a[0]);
 		pb = Pn(a[1]);
-		//cout << c << endl;
 		pc = Pn(c);
-		cout << "èòåðàöèÿ:   " << i + 1 << endl;
+		cout << "Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ñ:   " << i + 1 << endl;
 		if (pa * pc < 0)
 		{
 			a[1] = c;
-			//cout << "(a,b) = (" << a[0] << ", " << a[1] << ")" << endl;
 		}
 		if (pb * pc < 0)
 		{
 			a[0] = c;
-			//cout << "(a,b) = (" << a[0] << ", " << a[1] << ")" << endl;
 		}
 		if (abs(pc) <= eps)
 		{
@@ -128,7 +117,7 @@ float secant(float a[2]) //õîðä
 		cout << "        |f(c)| : " << abs(pc) << endl<< endl;
 		i++;
 	}
-	cout << "Êîëè÷åñòâî èòåðàöèé:     i = " << i << endl;
+	cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸Ð¹:     i = " << i << endl;
 	if (x != c)
 		x = (a[0] + a[1]) / 2;
 	return x;
